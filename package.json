@@ -1,0 +1,49 @@
+{
+  "name": "applied",
+  "productName": "Applied",
+  "version": "0.1.0",
+  "description": "Keeps your job hunt in one place: applications on a board, follow-up nudges and tidy CV versions",
+  "main": "main.js",
+  "author": "Tom Lowndes",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.js",
+    "icons": "node scripts/make-icons.js",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  },
+  "devDependencies": {
+    "electron": "^44.7.2",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "uk.co.tomlowndes.applied",
+    "productName": "Applied",
+    "files": [
+      "main.js",
+      "preload.js",
+      "lib/**",
+      "src/**",
+      "assets/**"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "tlowndes",
+        "repo": "applied",
+        "releaseType": "release"
+      }
+    ]
+  }
+}
